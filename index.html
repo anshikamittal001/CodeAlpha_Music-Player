@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Music Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="music-player" id="musicPlayer">
+        <div class="equalizer">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+        </div>
+        
+        <div class="album-art">
+            🎵
+        </div>
+        
+        <div class="track-info">
+            <div class="track-title">Midnight Dreams</div>
+            <div class="track-artist">Synthwave Artist</div>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar" tabindex="0" role="slider" aria-label="Song progress">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="time-info">
+                <span id="currentTime">0:00</span>
+                <span id="duration">3:45</span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn" id="prevBtn" aria-label="Previous track">⏮</button>
+            <button class="control-btn play-btn" id="playBtn" aria-label="Play/Pause">▶</button>
+            <button class="control-btn" id="nextBtn" aria-label="Next track">⏭</button>
+        </div>
+        
+        <div class="volume-container">
+            <span class="volume-icon" aria-hidden="true">🔊</span>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="75" aria-label="Volume control">
+        </div>
+        
+        <div class="playlist-button-container">
+            <button class="playlist-btn" id="playlistBtn" aria-label="Toggle playlist">
+                <span aria-hidden="true">📋</span>
+                <span>Playlist</span>
+            </button>
+        </div>
+        
+        <audio id="audio" preload="metadata">
+            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- Playlist Modal -->
+    <div class="playlist-modal-overlay" id="playlistModalOverlay">
+        <div class="playlist-modal" id="playlistModal">
+            <div class="playlist-header">
+                <h3>🎵 My Playlist</h3>
+                <button class="close-btn" id="closePlaylist" aria-label="Close playlist">✕</button>
+            </div>
+            <div class="playlist-tracks" id="playlistTracks" role="list">
+                <!-- Tracks will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
